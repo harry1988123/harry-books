@@ -1,13 +1,12 @@
-import Image from "next/image";
 import Banner from "./components/Banner"
 import BookList from "./components/BookList";
-import { Input } from "@/components/ui/input";
+import SearchBar from "./components/SearchBar";
 
 export default function Home() {
   return (
     <>
       <Banner />
-      <Input />
+      <SearchBar />
       <BookList />
     </>
   );
