@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { ConfigProvider } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} style={{ maxWidth: '1280px', margin: 'auto' }}>
+        <AntdRegistry>
+          <ConfigProvider theme={{
+            token: {
+              colorPrimary: '#CE7041',
+            }
+          }}>
+            <Navbar />
+            {children}
+          </ConfigProvider>
+        </AntdRegistry>
+      </body>
     </html>
   );
 }
